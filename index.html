@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>MOMENT — For Someone I Should've Talked to Sooner</title>
+  <meta name="theme-color" content="#FFF7E8">
+  <meta name="description" content="A personal moment and apology.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="palette-warm">
+
+  <!-- Ambient Particles & Subtle Paper Grain -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div id="grain" aria-hidden="true"></div>
+
+  <!-- Persistent Top Controls -->
+  <header class="top-bar" aria-label="Controls">
+    <div class="brand-subtle">MOMENT</div>
+    <div class="top-actions">
+      <button class="sound-toggle" id="btn-sound" aria-label="Toggle ambient sound" title="Toggle ambient sound">
+        <svg class="sound-icon sound-icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <line x1="23" y1="9" x2="17" y2="15"></line>
+          <line x1="17" y1="9" x2="23" y2="15"></line>
+        </svg>
+        <svg class="sound-icon sound-icon-on hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+        <span class="sound-label" id="sound-label">ambient off</span>
+      </button>
+      <span class="chapter-indicator" id="chapter-indicator" aria-live="polite">0 / 8</span>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CHAPTER 0: THE ENVELOPE ("open when you're ready")
+       ============================================================ -->
+  <section class="scene active" id="chapter-0" data-chapter="0" data-theme="warm">
+    <div class="scene-inner envelope-scene">
+      <div class="envelope-wrapper" id="envelope-wrapper" tabindex="0" role="button" aria-label="Open envelope">
+        <div class="envelope" id="envelope">
+          <div class="envelope-flap" id="envelope-flap"></div>
+          <div class="envelope-pocket"></div>
+          <div class="envelope-letter-peek" id="envelope-letter-peek">
+            <div class="letter-peek-inner">
+              <span class="peek-line"></span>
+              <span class="peek-line short"></span>
+            </div>
+          </div>
+          <div class="wax-seal" id="wax-seal" title="Click to open">
+            <div class="seal-inner">
+              <span class="seal-mark">✦</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="envelope-text-wrap" id="envelope-text-wrap">
+        <h1 class="envelope-title" id="envelope-title">for the person<br>I should've talked to sooner.</h1>
+        <p class="envelope-sub handwritten" id="envelope-sub">open when you're ready.</p>
+        <button class="cta cta-open-envelope" id="cta-open-envelope">open envelope</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHAPTER 1: "YOU WERE MY BESTIE."
+       ============================================================ -->
+  <section class="scene" id="chapter-1" data-chapter="1" data-theme="warm">
+    <div class="scene-inner memories-intro-scene">
+      <div class="chapter-header">
+        <p class="ch-intro-lead" id="ch1-intro">Before I explain anything...</p>
+        <p class="ch-intro-sub" id="ch1-lead">I want you to remember something.</p>
+        <h2 class="ch-headline highlight-serif" id="ch1-headline">You were my bestie.</h2>
+      </div>
+
+      <div class="memory-fragments-grid" id="ch1-fragments-grid">
+        <div class="memory-fragment-card">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <p class="fragment-text">the random conversations</p>
+        </div>
+        <div class="memory-fragment-card">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <p class="fragment-text">the stupid little things</p>
+        </div>
+        <div class="memory-fragment-card">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <p class="fragment-text">the times you were just there</p>
+        </div>
+        <div class="memory-fragment-card">
+          <div class="washi-tape" aria-hidden="true"></div>
+          <p class="fragment-text">the ordinary days that somehow became memories</p>
+        </div>
+      </div>
+
+      <div class="scene-bottom">
+        <button class="cta" id="cta-ch1">continue →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHAPTER 2: "AND THEN I DISAPPEARED."
+       ============================================================ -->
+  <section class="scene" id="chapter-2" data-chapter="2" data-theme="quiet">
+    <div class="scene-inner timeline-scene">
+      <div class="timeline-container">
+        <div class="timeline-track" id="timeline-track">
+          <div class="timeline-step first">US</div>
+          <div class="timeline-step">more conversations</div>
+          <div class="timeline-step">more memories</div>
+          <div class="timeline-step ellipsis">...</div>
+          <div class="timeline-step disappeared">I disappeared.</div>
+        </div>
+      </div>
+
+      <div class="ghost-confession-box" id="ghost-confession-box">
+        <h2 class="ghost-title" id="ghost-title">I ghosted you.</h2>
+        <div class="confession-pause-line"></div>
+        <p class="ghost-sub" id="ghost-sub">And honestly,<br>you didn't deserve that.</p>
+      </div>
+
+      <div class="scene-bottom">
+        <button class="cta" id="cta-ch2">next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHAPTER 3: "I THOUGHT DISTANCE WOULD MAKE IT EASIER."
+       ============================================================ -->
+  <section class="scene" id="chapter-3" data-chapter="3" data-theme="quiet">
+    <div class="scene-inner silence-scene">
+      <div class="chat-silence-card" id="chat-silence-card">
+        <div class="chat-status-bar">
+          <span class="chat-user-label" id="chat-user-label">you</span>
+          <span class="chat-last-seen" id="chat-last-seen">last seen a long time ago</span>
+        </div>
+        <div class="chat-bubble-area">
+          <div class="chat-bubble typing-bubble" id="typing-bubble">
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+          </div>
+          <div class="chat-empty-space" id="chat-empty-space">
+            <span class="handwritten muted-note">[ nothing sent ]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="calendar-progression" id="calendar-progression">
+        <div class="calendar-card" id="calendar-card">
+          <span class="cal-label">days passing in silence</span>
+          <div class="cal-counter" id="cal-counter">Day 1...</div>
+        </div>
+      </div>
+
+      <div class="silence-text-block" id="silence-text-block">
+        <p class="silence-p" id="ch3-lead">I thought not talking would make things easier.</p>
+        <p class="silence-pause" id="ch3-pause">It didn't.</p>
+        <p class="silence-p conclusion" id="ch3-conclusion">It just made me realize how much I had taken your presence for granted.</p>
+      </div>
+
+      <div class="scene-bottom">
+        <button class="cta" id="cta-ch3">continue →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHAPTER 4: THE REALIZATION (Emotional Centerpiece)
+       ============================================================ -->
+  <section class="scene" id="chapter-4" data-chapter="4" data-theme="realization">
+    <div class="scene-inner realization-scene">
+      <div class="realization-header">
+        <p class="r-opening" id="ch4-opening">Funny thing about losing someone's presence...</p>
+        <p class="r-sub" id="ch4-sub">You notice all the little places they used to exist.</p>
+      </div>
+
+      <div class="interactive-fragments-field" id="ch4-fragments-field" role="region" aria-label="Interactive reflections">
+        <button class="r-fragment-tag" type="button">who I'd randomly text</button>
+        <button class="r-fragment-tag" type="button">who I'd tell this to first</button>
+        <button class="r-fragment-tag" type="button">who I'd normally tell this to</button>
+        <button class="r-fragment-tag" type="button">who I expected to be there</button>
+        <button class="r-fragment-tag" type="button">whose presence I got used to</button>
+      </div>
+
+      <div class="realization-closing" id="ch4-closing">
+        <p class="r-lead" id="ch4-closing-lead">That's when I realized...</p>
+        <p class="r-notjust" id="ch4-closing-notjust">I didn't just miss talking to you.</p>
+        <h2 class="r-final highlight-serif" id="ch4-closing-final">I missed YOU.</h2>
+      </div>
+
+      <div class="scene-bottom">
+        <button class="cta" id="cta-ch4">continue →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHAPTER 5: THE APOLOGY (Direct, mature, accountable)
+       ============================================================ -->
+  <section class="scene" id="chapter-5" data-chapter="5" data-theme="quiet">
+    <div class="scene-inner apology-scene">
+      <div class="apology-card">
+        <h1 class="apology-title" id="apology-title">I'm sorry.</h1>
+        <div class="c-divider" aria-hidden="true"></div>
+
+        <div class="apology-reasons" id="apology-reasons">
+          <p class="apology-reason-line">Not because I feel lonely now.</p>
+          <p class="apology-reason-line">Not because I want things to go back to how they were.</p>
+          <p class="apology-reason-line">But because I know I hurt someone who mattered to me.</p>
+        </div>
+
+        <div class="apology-pause-line"></div>
+
+        <div class="apology-accountability" id="apology-accountability">
+          <p class="apology-acc-line">I should've communicated.</p>
+          <p class="apology-acc-line">I should've explained.</p>
+          <p class="apology-acc-line">I shouldn't have disappeared.</p>
+        </div>
+
+        <p class="apology-verdict handwritten" id="apology-verdict">I was wrong.</p>
+      </div>
+
+      <div class="scene-bottom">
+        <button class="cta" id="cta-ch5">continue →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHAPTER 6: "I DON'T EXPECT ANYTHING."
+       ============================================================ -->
+  <section class="scene" id="chapter-6" data-chapter="6" data-theme="warm">
+    <div class="scene-inner quiet-scene">
+      <div class="scrapbook-card no-pressure-card">
+        <div class="card-sprig-icon" aria-hidden="true">✦</div>
+        <div class="card-text-flow" id="ch6-lines">
+          <p class="np-line">I don't know what you feel about me now.</p>
+          <p class="np-line">And I don't expect you to forgive me.</p>
+          <p class="np-line">I don't expect things to magically become the way they were.</p>
+          <p class="np-line highlight">You don't owe me a reply.</p>
+          <p class="np-line highlight">You don't owe me forgiveness.</p>
+          <p class="np-line">I just felt like you deserved to hear the apology I should've given you a long time ago.</p>
+        </div>
+      </div>
+
+      <div class="scene-bottom">
+        <button class="cta" id="cta-ch6">open memory box →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHAPTER 7: THE MEMORY BOX (Tactile Keepsakes)
+       ============================================================ -->
+  <section class="scene" id="chapter-7" data-chapter="7" data-theme="warm">
+    <div class="scene-inner memory-box-scene">
+      <div class="memory-box-header">
+        <h2 class="box-title">the memory box</h2>
+        <p class="box-sub handwritten">little fragments from before the silence</p>
+      </div>
+
+      <div class="memory-box-container" id="memory-box-container">
+        <!-- Rendered from config or initialized dynamically -->
+      </div>
+
+      <!-- Detail Modal / Viewer for selected keepsake -->
+      <div class="keepsake-modal" id="keepsake-modal" aria-hidden="true" role="dialog">
+        <div class="keepsake-modal-backdrop" id="modal-backdrop"></div>
+        <div class="keepsake-modal-card" id="modal-card">
+          <button class="modal-close" id="modal-close" aria-label="Close modal">✕</button>
+          <div class="modal-content-area" id="modal-content-area"></div>
+        </div>
+      </div>
+
+      <div class="scene-bottom">
+        <button class="cta" id="cta-ch7">read the letter →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHAPTER 8: THE HANDWRITTEN LETTER
+       ============================================================ -->
+  <section class="scene" id="chapter-8" data-chapter="8" data-theme="warm">
+    <div class="scene-inner letter-scene">
+      <div class="stationery-letter" id="stationery-letter">
+        <div class="stationery-stamp" aria-hidden="true">
+          <span class="stamp-postmark">MOMENT</span>
+          <span class="stamp-icon">✦</span>
+        </div>
+        <div class="letter-body" id="letter-body">
+          <h3 class="letter-salutation">Hey.</h3>
+          <p class="letter-p">I don't really know how to make up for disappearing from someone's life like that.</p>
+          <p class="letter-p">I know an apology doesn't undo it.</p>
+          <p class="letter-p">And I know I can't ask you to forget it.</p>
+          <p class="letter-p">I just wanted you to know that I remember the friendship. I remember what you meant to me. And I realize now that I didn't treat that friendship with the care it deserved.</p>
+          <p class="letter-p">I'm sorry.</p>
+          <p class="letter-p">For disappearing.<br>For leaving questions instead of answers.<br>For making someone who mattered feel like they didn't.</p>
+          <p class="letter-p">I don't know where we go from here.</p>
+          <p class="letter-p">But I'm grateful that I got to call you my bestie in the first place.</p>
+          <p class="letter-p">And if this is the last thing I ever say to you...</p>
+          <p class="letter-p emphasis">thank you.<br>For being there.</p>
+          <div class="letter-signoff">— Yusuf</div>
+        </div>
+      </div>
+
+      <div class="scene-bottom">
+        <button class="cta" id="cta-ch8">one last thing →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FINAL SCREEN: "YOUR TURN."
+       ============================================================ -->
+  <section class="scene" id="chapter-final" data-chapter="9" data-theme="warm">
+    <div class="scene-inner final-scene">
+      <div class="final-card" id="final-card-choice">
+        <p class="final-lead" id="final-lead">That's all I wanted to say.</p>
+        <p class="final-sub" id="final-sub">Whatever you feel,<br>I'll understand.</p>
+
+        <div class="final-choices">
+          <button class="final-btn btn-leave" id="btn-leave-here">
+            <span>leave it here</span>
+          </button>
+          <button class="final-btn btn-talk" id="btn-talk-to-me">
+            <span>talk to me</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dismissal State (Displayed if she chooses "leave it here") -->
+      <div class="leave-peace-card hidden" id="leave-peace-card" aria-live="polite">
+        <p class="peace-line" id="peace-line-1">That's okay.</p>
+        <p class="peace-line subtle" id="peace-line-2">You don't owe me anything.</p>
+        <div class="c-divider" aria-hidden="true"></div>
+        <div class="peace-signoff" id="peace-signoff">— Yusuf</div>
+        <div class="peace-brand">
+          <span class="peace-logo">MOMENT</span>
+          <span class="peace-note">made for your moment.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Configuration with personal content -->
+  <script src="config.js"></script>
+  <!-- Core Interaction Controller & Audio Engine -->
+  <script src="script.js"></script>
+</body>
+</html>
